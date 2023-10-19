@@ -2376,3 +2376,5 @@ PlayerName = {}
 for i,v in pairs(game:GetService("Players"):GetChildren()) do
     table.insert(PlayerName ,v.Name)
 end
+local Windows = DiscordLib:Window("Blox Fruits", _G.Color, _G.Toggle)
+local Server = Windows:Server("Siu HUB","")
