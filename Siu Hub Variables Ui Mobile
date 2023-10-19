@@ -1,5 +1,34 @@
--- [Ui Start] --
+local ScreenGui = Instance.new("ScreenGui")
+local ImageButton = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
 
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ImageButton.Parent = ScreenGui
+ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BorderSizePixel = 0
+ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+ImageButton.Size = UDim2.new(0, 50, 0, 50)
+ImageButton.Draggable = true
+ImageButton.Image = "http://www.roblox.com/asset/?id=14276303602"
+ImageButton.MouseButton1Down:connect(function()
+	game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
+	game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
+end)
+
+UICorner.CornerRadius = UDim.new(0, 50)
+UICorner.Parent = ImageButton
+
+
+repeat wait(1) until game:IsLoaded()
+
+do
+	local ui = game.CoreGui:FindFirstChild("ManakeUiLib")
+	if ui then
+		ui:Destroy()
+	end
+end
 if game:GetService("CoreGui"):FindFirstChild("MUKURO GUI") then
 	game:GetService("CoreGui"):FindFirstChild("MUKURO GUI"):Destroy()
 end
@@ -100,7 +129,7 @@ Discord.Parent = game:GetService("CoreGui")
 Discord.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 function DiscordLib:Window(text,mainclr,cls)
-	local PresetColor = mainclr or Color3.fromRGB(0,255,255) or _G.Color
+	local PresetColor = mainclr or Color3.fromRGB(255,0,0) or _G.Color
 	local CloseBind = cls or Enum.KeyCode.RightControl or _G.Toggle
 	local currentservertoggled = ""
 	local minimized = false
@@ -2347,5 +2376,3 @@ PlayerName = {}
 for i,v in pairs(game:GetService("Players"):GetChildren()) do
     table.insert(PlayerName ,v.Name)
 end
-
--- [Ui End] --
